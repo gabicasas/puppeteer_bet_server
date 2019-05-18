@@ -5,21 +5,15 @@ import { BetController } from './bet/bet.controller';
 import { BetService } from './bet/bet.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-
+import { Bet } from './model/bet.entity';
+import { Market } from './model/market.entity';
+import { Option } from './model/option.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'mysql',
-      database: 'testBet',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(),
+    TypeOrmModule.forFeature([Market, Bet, Option]),
+    
   ],
   controllers: [AppController, BetController],
   providers: [AppService, BetService],
