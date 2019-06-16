@@ -5,7 +5,7 @@
     "username": "root",
     "password": "mysql",
     "database": "testBet",
-    "entities": ["dist/model/**/**{.ts,.js}"],
+    "entities": ["src/model/**/**{.ts,.js}"],
     "synchronize": true,
     "logging": ["error", "schema"]
     

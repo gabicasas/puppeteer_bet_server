@@ -1,6 +1,6 @@
 import { Entity, PrimaryColumn, Column, PrimaryGeneratedColumn, Unique, ManyToOne } from 'typeorm';
 import { Bet } from './bet.entity';
-
+// DISTINAS CUOTAS DE LA MISA APUESTA EN DISTINTAS CASAS
 @Entity()
 // @Unique(['bet_host', 'market', 'event'])
 export class Option {

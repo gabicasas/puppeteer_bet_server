@@ -15,8 +15,8 @@ export class BetService {
                  @InjectRepository(Option) private readonly repoOption: Repository<Option> ) { }
 
 
-   public async saveOption(optionDto: any): Promise<Option> {
-     return this.repoOption.save( optionDto as Option);
+   public async saveOption(optionDto: Option): Promise<Option> {
+     return this.repoOption.save( optionDto );
    }
 
    public async saveBet(betDto: any): Promise<Bet> {
@@ -25,5 +25,9 @@ export class BetService {
 
   public async saveMarket(marketDto: any): Promise<Market> {
     return this.repoMarket.save( marketDto as Market);
+  }
+
+  public async getBetURL(optionUrl: string, optionBet: Bet): Promise<Option[]> {
+    return this.repoOption.find({url: optionUrl, bet: optionBet});
   }
 }
